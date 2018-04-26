@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Title: {{ medicine.name }}</h3>
+
+  <p><strong>url:</strong> {{ medicine.url }} </p>
+  <p><strong>Producer:</strong> {{ medicine.producer }}</p>
+  <p><strong>Category:</strong> {{ medicine.category }}</p>
+  <p><strong>Price:</strong> {{ medicine.price }} PLN</p>
+  <p><strong>Count:</strong> {{ medicine.count }}</p>
+  <p><strong>Date added:</strong> {{ medicine.date_added }}</p>
+  <p><strong>Date updated:</strong> {{ medicine.date_updated }}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Medicines units</h4>
+
+    {% for medicineunit in medicine.medicineunit_set.all %}
+      <hr>
+      <p><strong>Id:</strong> {{medicineunit.id}}</p>
+      <p><strong>Status:</strong> {{medicineunit.status}}</p>
+      <p><strong>Date added:</strong> {{medicineunit.date_added}}</p>
+      <p><strong>Date updated:</strong> {{medicineunit.date_updated}}</p>
+    {% endfor %}
+  </div>
+
+{% endblock %}
