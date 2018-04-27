@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Medicine, MedicineCategory, MedicineUnit
+from .models import Medicine, MedicineCategory, MedicineUnit, MedicineSale
 
 
 @admin.register(Medicine)
@@ -15,3 +15,8 @@ class MedicineUnitAdmin(admin.ModelAdmin):
 @admin.register(MedicineCategory)
 class MedicineCategoryAdmin(admin.ModelAdmin):
     list_display = ['name']
+
+
+@admin.register(MedicineSale)
+class MedicineSaleAdmin(admin.ModelAdmin):
+    list_display = ['medicine', 'items_count', 'amount', 'purchase_date']

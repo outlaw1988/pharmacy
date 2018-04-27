@@ -3,5 +3,16 @@
 {% block content %}
 
 <h3>Welcome to pharmacy</h3>
+<br>
+<p>Run tasks:</p>
+
+<form method="post">
+  {% csrf_token %}
+
+  <button type="submit" name="add-medicines" class="btn btn-primary">Add medicines</button>
+  <button type="submit" name="add-stock" class="btn btn-primary">Add to stock</button>
+  <button type="submit" name="generate-sales" class="btn btn-primary">Generate sales</button>
+
+</form>
 
 {% endblock %}

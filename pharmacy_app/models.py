@@ -11,7 +11,7 @@ class Medicine(models.Model):
     date_added = models.DateField(null=True, blank=True)
     date_updated = models.DateField(null=True, blank=True)
     price = models.FloatField(help_text="Medicine price")
-    count = models.IntegerField(help_text="Number of medicine units")
+    count = models.IntegerField(help_text="Number of available medicine units")
 
     class Meta:
         ordering = ['name']
@@ -56,3 +56,14 @@ class MedicineCategory(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class MedicineSale(models.Model):
+    medicine = models.ForeignKey('Medicine', on_delete=models.SET_NULL, null=True)
+    items_count = models.IntegerField()
+    amount = models.FloatField()
+    purchase_date = models.DateField()
+    purchase_time = models.TimeField()
+
+    class Meta:
+        ordering = ['-purchase_date', '-purchase_time']

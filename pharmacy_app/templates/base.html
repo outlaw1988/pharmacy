@@ -23,6 +23,8 @@
           {% if user.is_authenticated %}
             <li><a href="{% url 'index' %}">Main page</a></li>
             <li><a href="{% url 'medicines-list' %}">Medicines list</a></li>
+            <li><a href="{% url 'sales' %}">Sales</a></li>
+            <li><a href="{% url 'sales-list' %}">Sales list</a></li>
             <br>
             <li>User: {{ user.get_username }}</li>
             <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>

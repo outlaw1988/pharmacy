@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Sales list</h3>
+
+{% if medicinesale_list %}
+
+<table class="table">
+  <tr>
+    <th>
+      Medicine
+    </th>
+    <th>
+      Items count
+    </th>
+    <th>
+      Amount
+    </th>
+    <th>
+      Purchase date
+    </th>
+    <th>
+      Purchase time
+    </th>
+  </tr>
+
+  {% for sale in medicinesale_list %}
+
+    <tr>
+      <td>
+        {{sale.medicine}}
+      </td>
+      <td>
+        {{sale.items_count}}
+      </td>
+      <td>
+        {{sale.amount}}
+      </td>
+      <td>
+        {{sale.purchase_date}}
+      </td>
+      <td>
+        {{sale.purchase_time}}
+      </td>
+    </tr>
+
+  {% endfor %}
+
+</table>
+
+{% else %}
+
+<p>There is no sales</p>
+
+{% endif %}
+
+{% endblock %}
